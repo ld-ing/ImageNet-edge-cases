@@ -38,7 +38,7 @@ def data_loader(q, ):
         ids_test_batch = names[start:end]
         for idr in ids_test_batch:
             id = idr.split('/')[-1].split('.')[0]
-            img = cv2.imread(data_path+'/ILSVRC2012_img_val/{}.JPEG'.format(id))
+            img = cv2.imread(img_path+'/{}.JPEG'.format(id))
             img = img[...,::-1]
             r = 256/min(img.shape[:2])
             img = cv2.resize(img, dsize=(0,0), fx=r, fy=r)
@@ -125,8 +125,9 @@ offsets_dict = dict(offsets_list)
 
 
 # explore the wrong examples
+from PIL import Image
 i = int(np.random.random() * len(wrong))
-Image.open('/media/lding/Data/ImgNet/ILSVRC2012_img_val/ILSVRC2012_val_{}.JPEG'.format('%08d'%(wrong[i]+1))).show()
+Image.open(img_path+'/ILSVRC2012_val_{}.JPEG'.format('%08d'%(wrong[i]+1))).show()
 print 'Ground Truth:', offsets_dict[int(gt[wrong[i]][0][1:])]
 print 'Prediction: ', p[wrong[i]]
 '''
