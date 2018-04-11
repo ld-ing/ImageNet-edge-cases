@@ -1,4 +1,4 @@
-# Keras-ImageNet  
+# ImageNet Edge Cases 
 Keras implementation to test pre-trained models on ImageNet, as well as interactively show and explore failure cases.  
 Li Ding  
 Oct. 20, 2017  
